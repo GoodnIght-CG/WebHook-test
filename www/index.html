@@ -11,10 +11,9 @@
 
     <script src="./js/axios.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded',function(){
+        document.addEventListener('DOMContentLoaded', function(){
             var username = document.getElementById('username'),
                 userage = document.getElementById('userage');
-
             axios.get('/api/getinfo').then(res => {
                 username.innerHTML = res.data.name;
                 username.innerHTML = res.data.name;
