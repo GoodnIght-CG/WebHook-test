@@ -6,15 +6,22 @@
     <title>Docker-Jenkins-Test</title>
 </head>
 <body>
-    <h1>Hello Docker</h1>
+    <h1>Hello <span id="username"></span></h1>
+    <h3>My age is <span id="userage"></span></h3>
 
     <script src="./js/axios.min.js"></script>
     <script>
-        axios.get('/api/getinfo').then(res => {
-            console.log(res);
-        }).catch(err => {
-            console.log(err);
-        })
+        document.addEventListener('DOMContentLoaded',function(){
+            var username = document.getElementById('username'),
+                userage = document.getElementById('userage');
+
+            axios.get('/api/getinfo').then(res => {
+                username.innerHTML = res.data.name;
+                username.innerHTML = res.data.name;
+            }).catch(err => {
+                console.log(err);
+            })
+        });
     </script>
 </body>
 </html>
