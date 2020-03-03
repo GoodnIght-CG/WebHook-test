@@ -1,0 +1,27 @@
+version: '3.1'
+services:
+  mynginx:
+    image: mynginx   # 指定为镜像名称或镜像 ID，等同于docker build -t 镜像名称
+    # 构建容器
+    build: ./nginx   # 读取当前目录下的Dockerfile文件
+    restart: always
+    ports:
+          - "80:80"
+  mynode:
+    image: mynode
+    build: ./node
+    restart: always
+    ports:
+      - 3000:3000
+  myjenkins:
+    image: myjenkins
+    build: ./jenkins
+    restart: always
+    ports: 
+      - 8080:8080
+      - 50000:50000
+    volumes: 
+      - jenkins-data:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+
+          
