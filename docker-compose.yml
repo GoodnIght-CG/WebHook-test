@@ -1,14 +1,14 @@
 version: '3.1'
 services:
-  mynginx:
-    image: mynginx   # 指定为镜像名称或镜像 ID，等同于docker build -t 镜像名称
+  nginx-webhook:
+    image: nginx-webhook   # 指定为镜像名称或镜像 ID，等同于docker build -t 镜像名称
     # 构建容器
     build: ./nginx   # 读取当前目录下的Dockerfile文件
     restart: always
     ports:
           - "80:80"
-  mynode:
-    image: mynode
+  node-webhook:
+    image: node-webhook
     build: ./node
     restart: always
     ports:
